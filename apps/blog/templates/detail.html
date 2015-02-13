@@ -1,0 +1,10 @@
+{% extends "frontend.html" %}
+
+{% block front_content %}
+	<div class="panel panel-default">
+	  <div class="panel-heading"><h1>{{ post.title }}</h1><br/><h5><small>Posted in {{ post.categories.name }} at {{ post.date_modified }} by : {{ post.user }}</small></h5></div>
+	  <div class="panel-body">
+	    <p>{{ post.content }} </p>
+	  </div>
+	</div>
+{% endblock %} 

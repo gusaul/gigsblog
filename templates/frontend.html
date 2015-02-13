@@ -1,0 +1,36 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<div class="row">
+	<div class="col-lg-8">
+	{% block front_content %} {% endblock %} 
+	</div>
+	<div class="col-lg-4">
+		<div class="panel panel-default">
+		  <div class="panel-heading"><h4>Categories</h4></div>
+		  <div class="panel-body">
+		    {% if categories %}
+		    	<ul>
+		    	{% for cat in categories %}
+		    		<li><a href="{% url 'post:catViews' cat.name %}">{{ cat }}</a></li>
+		    	{% endfor %}
+		    	</ul>
+		    {% endif %}
+		  </div>
+		</div>
+
+		<div class="panel panel-default">
+		  <div class="panel-heading"><h4>Tag</h4></div>
+		  <div class="panel-body">
+		    {% if tags %}
+		    	<ul>
+		    	{% for tag in tags %}
+		    		<li><a href="{% url 'post:tagViews' tag.name %}">{{ tag }}</a></li>
+		    	{% endfor %}
+		    	</ul>
+		    {% endif %}
+		  </div>
+		</div>
+	</div>
+</div>
+{% endblock %}

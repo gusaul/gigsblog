@@ -1,0 +1,21 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+{% url 'admin' as adminurl %}
+{% url 'tag' as tagurl %}
+{% url 'category' as caturl %}
+
+<div class="row">
+<div class="col-lg-3">
+<div class="list-group">
+  <a href="{% url 'admin' %}" class="list-group-item {% if adminurl in request.get_full_path %} active {% endif %}">Posts</a>
+  <a href="{% url 'tag' %}" class="list-group-item {% if tagurl in request.get_full_path %} active {% endif %}">Tags</a>
+  <a href="{% url 'category' %}" class="list-group-item  {% if caturl in request.get_full_path %} active {% endif %}">Categories</a>
+</div>
+</div>
+<div class="col-lg-9">
+{% block admin_content %} {% endblock %} 
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+Django
+
+mongoengine
+
+pymongo
+
+bcrypt
+
+django-crispy-forms

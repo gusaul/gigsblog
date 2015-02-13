@@ -1,0 +1,23 @@
+{% extends "frontend.html" %} 
+
+{% block front_content %}
+
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+	{% if posts %}
+		{% for post in posts %}
+			<div class="panel panel-default">
+			  <div class="panel-heading"><h2><a href="{% url 'post:detail' post.id post.slug %}">{{ post.title }}</a></h2></div>
+			  <div class="panel-body">
+			    <p>{{ post.content }} </p>
+			  </div>
+			  <div class="panel-footer"><h5><small><strong>By : {{ post.user }} | {{ post.date_modified }} | Posted in : {{ post.categories.name }}</strong></small></h5></div>
+			</div>
+		{% endfor %}
+	{% else %}
+		<h2>POST NOT FOUND</h2>
+	{% endif %}
+{% endblock %} 
